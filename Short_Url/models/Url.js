@@ -12,4 +12,4 @@ const urlSchema = new Schema({
   },
 });
 
-module.exports = model("url", urlSchema);
+module.exports = model("Url", urlSchema);

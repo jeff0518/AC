@@ -7,8 +7,10 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const url = req.body.url
-  console.log('1' + url);
-  res.render("copy", { url });
+  console(url);
+  return Url.create({ origin_url: url }) // 存入資料庫
+   .then(() => res.render("/copy", {url})) // 新增完成後導回首頁
+   .catch((error) => console.log(error));
 })
 
 router.get("/copy", (req, res) => {
